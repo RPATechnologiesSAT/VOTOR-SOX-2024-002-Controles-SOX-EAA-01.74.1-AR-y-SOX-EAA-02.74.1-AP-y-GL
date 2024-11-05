@@ -1,0 +1,114 @@
+﻿{"Settings": [
+        {
+            "Name": "Transaccion_zeufi037",
+            "Value": "zeufi037",
+            "Description": "Transacion zeufi 037"
+        },
+        {
+            "Name": "ManualesCompensacionPath",
+            "Value": "Data\\Parameters\\Parámetros Revisión de Asientos Manuales de Compensación.xlsx",
+            "Description": "Ruta manuales de compensación"
+        },
+        {
+            "Name": "DownloadSAPExcelPath",
+            "Value": "Data\\Temp\\Reports",
+            "Description": "Ruta de los reportes que se descargan."
+        },
+        {
+            "Name": "ScreenshotFolder",
+            "Value": "Exceptions_Screenshots",
+            "Description": "Nombre de la carpeta de screenshots."
+        },
+        {
+            "Name": "WordTemplatePath",
+            "Value": "Data\\Template\\Completeness ZEUFI035-COUNTRY-YYYY MM.docx",
+            "Description": "Ruta de la plantilla word"
+        },
+        {
+            "Name": "WordReportFolderPath",
+            "Value": "Data\\WordReports\\",
+            "Description": "Ruta de los reportes que se descargan."
+        },
+        {
+            "Name": "TextoCaptura_1",
+            "Value": "Bookmark1",
+            "Description": "Nombre del texto de captura."
+        },
+        {
+            "Name": "TextoCaptura_2",
+            "Value": "Bookmark2",
+            "Description": "Nombre del texto de captura."
+        },
+        {
+            "Name": "TextoCaptura_3",
+            "Value": "Bookmark3",
+            "Description": "Nombre del texto de captura."
+        },
+        {
+            "Name": "TextoCaptura_4",
+            "Value": "Bookmark4",
+            "Description": "Nombre del texto de captura."
+        },
+        {
+            "Name": "TextoCaptura_5",
+            "Value": "Bookmark5",
+            "Description": "Nombre del texto de captura."
+        },
+        {
+            "Name": "TextoCaptura_6",
+            "Value": "Bookmark6",
+            "Description": "Nombre del texto de captura."
+        },
+        {
+            "Name": "FoldersNotToClean",
+            "Value": "Parameters,Template",
+            "Description": "Carpetas que no se tienen que limpiar."
+        },
+        {
+            "Name": "zeufi037RutaExcelTemplate",
+            "Value": "Data\\Template\\Clearings Analysis_SPA_2024 Template",
+            "Description": "Ruta del template zeufi037."
+        },
+        {
+            "Name": "RutaExcelTemplate",
+            "Value": "Data\\Template\\60.15.1-COUNTRY-Manual Journal Sample-YYYY MM",
+            "Description": "Ruta del template excel."
+        },
+        {
+            "Name": "RutaResultadosFolder",
+            "Value": "Data\\ExcelReports",
+            "Description": "Carpetas que no se tienen que limpiar."
+        },
+        {
+            "Name": "NombreProyecto",
+            "Value": "VOTORANTIM_004_001_RT1_Controles SOX-EAA-01.74.1-AR y SOX-EAA-02.74.1-AP",
+            "Description": "Nombre Proyecto."
+        },
+        {
+            "Name": "PathRaiz",
+            "Value": "Data\\Temp\\",
+            "Description": "Path Raiz."
+        },
+        {
+            "Name": "NombreCarpetaEvidencias",
+            "Value": "\\Evidencias",
+            "Description": "Carpetas Evidencias."
+        },
+        {
+            "Name": "NombreCarpetaTemporal",
+            "Value": "\\TempMail",
+            "Description": "Carpetas Temporal."
+        }
+    ],
+
+    "Assets": [
+        {
+            "Name": "MailListSOX",
+            "Description": "Lista de emails"
+        },
+		{
+            "Name": "AsuntoCorreo",
+            "Description": "Asunto de emails"
+        }
+    ]
+}
