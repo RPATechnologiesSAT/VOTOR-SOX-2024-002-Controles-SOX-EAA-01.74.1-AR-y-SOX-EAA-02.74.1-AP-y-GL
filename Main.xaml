@@ -762,11 +762,11 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <Transition.To>
-              <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Proceso principal" DisplayName="Process State" sap:VirtualizedContainerService.HintSize="760,3026" sap2010:WorkflowViewState.IdRef="State_10">
+              <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Proceso principal" DisplayName="Process State" sap:VirtualizedContainerService.HintSize="760,2938" sap2010:WorkflowViewState.IdRef="State_10">
                 <State.Entry>
-                  <TryCatch DisplayName="Try Catch - Process" sap:VirtualizedContainerService.HintSize="714,2580" sap2010:WorkflowViewState.IdRef="TryCatch_8">
+                  <TryCatch DisplayName="Try Catch - Process" sap:VirtualizedContainerService.HintSize="714,2492" sap2010:WorkflowViewState.IdRef="TryCatch_8">
                     <TryCatch.Try>
-                      <Sequence sap2010:Annotation.AnnotationText="- Sequence&#xA;- Flowchart&#xA;- State Machine" DisplayName="Process" sap:VirtualizedContainerService.HintSize="676,2330" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                      <Sequence sap2010:Annotation.AnnotationText="- Sequence&#xA;- Flowchart&#xA;- State Machine" DisplayName="Process" sap:VirtualizedContainerService.HintSize="676,2242" sap2010:WorkflowViewState.IdRef="Sequence_62">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="MailToSendFinalMail" />
                         </Sequence.Variables>
@@ -925,7 +925,6 @@
                             </ActivityAction>
                           </ui:ForEachRow.Body>
                         </ui:ForEachRow>
-                        <ui:Comment sap:VirtualizedContainerService.HintSize="642,88" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// SendEmailLastReport Cambiado pra debug" />
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendEmailLastReport.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="642,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_43" UnSafe="False" WorkflowFileName="ProcessModules\SendEmailLastReport.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
@@ -937,7 +936,7 @@
                             <InArgument x:TypeArguments="x:String" x:Key="in_ExcelFilePath" />
                             <InArgument x:TypeArguments="x:String" x:Key="in_WordResultFilePath" />
                             <InArgument x:TypeArguments="x:String" x:Key="in_MailAdressToSend">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ConfigProcess(&quot;MailListSOX&quot;).toString" />
+                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="MailToSendFinalMail+&quot;;&quot;+ConfigProcess(&quot;MailListSOX&quot;).toString" />
                             </InArgument>
                             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_ConfigFramework">
                               <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="ConfigFramework" />
@@ -958,7 +957,7 @@
                             <InArgument x:TypeArguments="x:String" x:Key="in_ExcelFilePath" />
                             <InArgument x:TypeArguments="x:String" x:Key="in_WordResultFilePath" />
                             <InArgument x:TypeArguments="x:String" x:Key="in_MailAdressToSend">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ConfigProcess(&quot;MailListSOX&quot;).toString" />
+                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="MailToSendFinalMail+&quot;;&quot;+ConfigProcess(&quot;MailListSOX&quot;).toString" />
                             </InArgument>
                             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_ConfigFramework">
                               <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="ConfigFramework" />

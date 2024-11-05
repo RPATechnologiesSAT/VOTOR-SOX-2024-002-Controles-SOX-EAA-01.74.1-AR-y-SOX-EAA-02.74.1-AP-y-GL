@@ -18,7 +18,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "23.10.0.0",
-  "projectVersion": "1.0.6",
+  "projectVersion": "1.0.7",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -70,7 +70,8 @@
         "fileName": "Tests\\FiltrarPegarExcelTestCase.xaml"
       }
     ],
-    "saveToCloud": false
+    "saveToCloud": false,
+    "cloudProjectUrl": "https://cloud.uipath.com/votorbarvkur/studio_/designer/a77437c9-4704-468a-a6f9-de05044faa56"
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
