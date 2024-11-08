@@ -103,7 +103,7 @@
 
     "Assets": [
         {
-            "Name": "MailListSOX",
+            "Name": "MailList",
             "Description": "Lista de emails"
         },
 		{

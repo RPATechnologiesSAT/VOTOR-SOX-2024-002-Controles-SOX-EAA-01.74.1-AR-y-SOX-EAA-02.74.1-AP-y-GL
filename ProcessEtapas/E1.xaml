@@ -122,7 +122,7 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Etapa1" sap:VirtualizedContainerService.HintSize="1280,1393" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Etapa1" sap:VirtualizedContainerService.HintSize="974,1393" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -152,7 +152,7 @@
                 <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;SAPConnectionName&quot;).ToString" />
               </InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorAssetsFolder">
-                <Literal x:TypeArguments="x:String">Shared</Literal>
+                <Literal x:TypeArguments="x:String">SOX/EAA-01.74.1-AR y EAA-02.74.1-AP</Literal>
               </InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_CredentialAssetName">
                 <Literal x:TypeArguments="x:String">Cred_SAP_Robot</Literal>
