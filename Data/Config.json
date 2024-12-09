@@ -3,6 +3,10 @@
             "Name": "Transaccion_zeufi037",
             "Value": "zeufi037",
             "Description": "Transacion zeufi 037"
+        },{
+            "Name": "OrchestratorFolderPath",
+            "Value": "SOX/EAA-01.74.1-AR y EAA-02.74.1-AP y GL",
+            "Description": "Transacion zeufi 037"
         },
         {
             "Name": "ManualesCompensacionPath",

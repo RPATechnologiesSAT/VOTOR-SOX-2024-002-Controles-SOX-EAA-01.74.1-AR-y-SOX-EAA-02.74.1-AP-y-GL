@@ -103,14 +103,14 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Etapa3" sap:VirtualizedContainerService.HintSize="701,1813" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Etapa3" sap:VirtualizedContainerService.HintSize="976,1813" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="550,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;--- Inicio Etapa3 ---&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="550,1453" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="522,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;--- Inicio Etapa3 ---&quot;]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="522,1453" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
         <Sequence sap:VirtualizedContainerService.HintSize="484,1193" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
@@ -132,32 +132,6 @@
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\TablaResultadosExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ProcessModules\TablaResultadosExcel.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_RutaResultado">[out_ExcelResultPath]</OutArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_Country">[in_TransactionRow(0).ToString]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_Year">[Date.Now.AddMonths(-1).toString("yyyy")]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_Month">[Date.Now.AddMonths(-1).toString("MM")]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_RutaTemplateExcel">[in_Config("zeufi037RutaExcelTemplate").ToString+".xlsx"]</InArgument>
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTableToExcel">[FinalResultDataTable]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_RutaReporte">[in_Config("RutaResultadosFolder").ToString]</InArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\FiltrarPegarExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="ProcessModules\FiltrarPegarExcel.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_ExcelReportPath">[out_ExcelResultPath]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_ExcelSAPPath">[in_ExcelFilePAthFromE2]</InArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-              </Sequence>
-            </If.Then>
-            <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,341" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\TablaResultadosExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ProcessModules\TablaResultadosExcel.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
                     <OutArgument x:TypeArguments="x:String" x:Key="out_RutaResultado">
                       <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_ExcelResultPath" />
                     </OutArgument>
@@ -171,7 +145,7 @@
                       <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Date.Now.AddMonths(-1).toString(&quot;MM&quot;)" />
                     </InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_RutaTemplateExcel">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;RutaExcelTemplate&quot;).ToString+&quot;.xlsm&quot;" />
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;zeufi037RutaExcelTemplate&quot;).ToString+&quot;.xlsx&quot;" />
                     </InArgument>
                     <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTableToExcel">
                       <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="FinalResultDataTable" />
@@ -179,6 +153,36 @@
                     <InArgument x:TypeArguments="x:String" x:Key="in_RutaReporte">
                       <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;RutaResultadosFolder&quot;).ToString" />
                     </InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\FiltrarPegarExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="ProcessModules\FiltrarPegarExcel.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ExcelReportPath">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_ExcelResultPath" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ExcelSAPPath">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ExcelFilePAthFromE2" />
+                    </InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,341" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\TablaResultadosExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ProcessModules\TablaResultadosExcel.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_RutaResultado">[out_ExcelResultPath]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Country">[in_TransactionRow(0).ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Year">[Date.Now.AddMonths(-1).toString("yyyy")]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Month">[Date.Now.AddMonths(-1).toString("MM")]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_RutaTemplateExcel">[in_Config("RutaExcelTemplate").ToString+".xlsm"]</InArgument>
+                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTableToExcel">[FinalResultDataTable]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_RutaReporte">[in_Config("RutaResultadosFolder").ToString]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\FiltrarPegarExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="ProcessModules\FiltrarPegarExcel.xaml">
@@ -210,7 +214,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="516,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="488,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -221,19 +225,19 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="416,309" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence sap:VirtualizedContainerService.HintSize="416,281" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Etapa3 ha fallado&quot;]" />
-              <Rethrow sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Etapa3 ha fallado&quot;]" />
+              <Rethrow sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
             </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="550,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;--- Fin Etapa3 ---&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="522,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;--- Fin Etapa3 ---&quot;]" />
   </Sequence>
 </Activity>

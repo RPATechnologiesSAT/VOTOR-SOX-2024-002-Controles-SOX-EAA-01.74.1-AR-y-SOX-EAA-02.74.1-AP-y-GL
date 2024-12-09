@@ -148,13 +148,13 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="VOTORANTIM_004_001_RT1_Controles SOX-EAA-01.74.1-AR y SOX-EAA-02.74.1-AR" sap:VirtualizedContainerService.HintSize="976,671" sap2010:WorkflowViewState.IdRef="Sequence_73">
+  <Sequence DisplayName="VOTORANTIM_004_001_RT1_Controles SOX-EAA-01.74.1-AR y SOX-EAA-02.74.1-AR" sap:VirtualizedContainerService.HintSize="974,671" sap2010:WorkflowViewState.IdRef="Sequence_73">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <StateMachine InitialState="{x:Reference __ReferenceID2}" DisplayName="Framework RT1" sap:VirtualizedContainerService.HintSize="993,284.424" sap2010:WorkflowViewState.IdRef="StateMachine_3">
+    <StateMachine InitialState="{x:Reference __ReferenceID2}" DisplayName="Framework RT1" sap:VirtualizedContainerService.HintSize="991,377.04" sap2010:WorkflowViewState.IdRef="StateMachine_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -205,9 +205,9 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </State>
-      <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Se obtienen ConfigFramework y ConfigProcess" DisplayName="Configuration State" sap:VirtualizedContainerService.HintSize="171,117" sap2010:WorkflowViewState.IdRef="State_11">
+      <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Se obtienen ConfigFramework y ConfigProcess" DisplayName="Configuration State" sap:VirtualizedContainerService.HintSize="807,5287" sap2010:WorkflowViewState.IdRef="State_11">
         <State.Entry>
-          <TryCatch DisplayName="Try Catch Configuration" sap:VirtualizedContainerService.HintSize="761,4761" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+          <TryCatch DisplayName="Try Catch Configuration" sap:VirtualizedContainerService.HintSize="761,4828" sap2010:WorkflowViewState.IdRef="TryCatch_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -215,7 +215,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <Sequence DisplayName="Configuración" sap:VirtualizedContainerService.HintSize="723,4533" sap2010:WorkflowViewState.IdRef="Sequence_65">
+              <Sequence DisplayName="Configuración" sap:VirtualizedContainerService.HintSize="723,4560" sap2010:WorkflowViewState.IdRef="Sequence_65">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -368,7 +368,7 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:LogMessage>
                 </Sequence>
-                <Sequence sap2010:Annotation.AnnotationText="Mapeo de variables y assets de configuración del Proceso" DisplayName="Configuración del proceso" sap:VirtualizedContainerService.HintSize="689,3680" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                <Sequence sap2010:Annotation.AnnotationText="Mapeo de variables y assets de configuración del Proceso" DisplayName="Configuración del proceso" sap:VirtualizedContainerService.HintSize="689,3707" sap2010:WorkflowViewState.IdRef="Sequence_60">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Default="[New Dictionary(Of String, Object)]" Name="ConfigAux" />
                     <Variable x:TypeArguments="x:Boolean" Name="Boo_ConfigPath" />
@@ -525,7 +525,7 @@
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[asset(&quot;Name&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" FolderPath="SOX/EAA-01.74.1-AR y EAA-02.74.1-AP" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="GetRobotAsset_6">
+                                              <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[asset(&quot;Name&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" FolderPath="[ConfigProcess(&quot;OrchestratorFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="GetRobotAsset_6">
                                                 <ui:GetRobotAsset.Value>
                                                   <OutArgument x:TypeArguments="x:Object">[ConfigProcess(asset("Name").ToString)]</OutArgument>
                                                 </ui:GetRobotAsset.Value>
@@ -622,7 +622,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ForEach>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="655,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="655,84" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                     <ui:CommentOut.Body>
                       <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,135" sap2010:WorkflowViewState.IdRef="Sequence_81">
                         <sap:WorkflowViewStateService.ViewState>
@@ -762,7 +762,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <Transition.To>
-              <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Proceso principal" DisplayName="Process State" sap:VirtualizedContainerService.HintSize="760,3018" sap2010:WorkflowViewState.IdRef="State_10">
+              <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Proceso principal" DisplayName="Process State" sap:VirtualizedContainerService.HintSize="171,91" sap2010:WorkflowViewState.IdRef="State_10">
                 <State.Entry>
                   <TryCatch DisplayName="Try Catch - Process" sap:VirtualizedContainerService.HintSize="714,2532" sap2010:WorkflowViewState.IdRef="TryCatch_8">
                     <TryCatch.Try>
@@ -931,7 +931,7 @@
                             <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTable">[dt_GeneralReport]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="in_ExcelFilePath" />
                             <InArgument x:TypeArguments="x:String" x:Key="in_WordResultFilePath" />
-                            <InArgument x:TypeArguments="x:String" x:Key="in_MailAdressToSend">[MailToSendFinalMail+";"+ConfigProcess("MailListSOX").toString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_MailAdressToSend">[MailToSendFinalMail+";"+ConfigProcess("MailList").toString]</InArgument>
                             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_ConfigFramework">[ConfigFramework]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="in_SubSubject" xml:space="preserve">01.74.1 AR Clearings </InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
@@ -942,9 +942,9 @@
                             <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTable">[dt_GeneralReport]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="in_ExcelFilePath" />
                             <InArgument x:TypeArguments="x:String" x:Key="in_WordResultFilePath" />
-                            <InArgument x:TypeArguments="x:String" x:Key="in_MailAdressToSend">[MailToSendFinalMail+";"+ConfigProcess("MailListSOX").toString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_MailAdressToSend">[MailToSendFinalMail+";"+ConfigProcess("MailList").toString]</InArgument>
                             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_ConfigFramework">[ConfigFramework]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_SubSubject" xml:space="preserve">02.74.1 AP Clearings </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_SubSubject" xml:space="preserve">02.74.1 AP y GL Clearings </InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                       </Sequence>

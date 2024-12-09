@@ -104,17 +104,17 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Etapa4" sap:VirtualizedContainerService.HintSize="1851,689.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Etapa4" sap:VirtualizedContainerService.HintSize="974,1396" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;--- Inicio Etapa4 ---&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="454,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;--- Inicio Etapa4 ---&quot;]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="454,1036" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -136,14 +136,22 @@
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="n AsientosAr.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ProcessModules\n AsientosAr.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_PathExcel">[in_ExcelResultARFilePath]</InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_CountAsientos">[AsientosAR]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PathExcel">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ExcelResultARFilePath" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_CountAsientos">
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="AsientosAR" />
+              </OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="n AsientosAp.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="ProcessModules\n AsientosAp.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_PathExcel">[in_ExcelResultAPFilePath]</InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_CountAsientos">[AsientosAP]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PathExcel">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ExcelResultAPFilePath" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_CountAsientos">
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="AsientosAP" />
+              </OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\SendEmail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ProcessModules\SendEmail.xaml">
@@ -201,6 +209,6 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;--- Fin Etapa4 ---&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="454,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;--- Fin Etapa4 ---&quot;]" />
   </Sequence>
 </Activity>

@@ -122,16 +122,16 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Etapa1" sap:VirtualizedContainerService.HintSize="974,1393" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Etapa1" sap:VirtualizedContainerService.HintSize="974,1841" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="612,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;--- Inicio Etapa 1 ---&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="612,1033" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="612,1481" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="468,773" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="484,1221" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="RutaDocWord" />
             <Variable x:TypeArguments="x:String" Name="ScreenshotWordPath" />
@@ -143,36 +143,85 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\Login_SAP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="ProcessModules\Login_SAP.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Cliente">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;Client&quot;).ToString.Split(&quot;.&quot;c)(1)" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_ConnectionName">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;SAPConnectionName&quot;).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorAssetsFolder">
-                <Literal x:TypeArguments="x:String">SOX/EAA-01.74.1-AR y EAA-02.74.1-AP</Literal>
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_CredentialAssetName">
-                <Literal x:TypeArguments="x:String">Cred_SAP_Robot</Literal>
-              </InArgument>
-              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_ReportTable">
-                <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_ReportTable" />
-              </InOutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Language">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;SAP_Language&quot;).ToString" />
-              </InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\IntroducirTransaccion_SAP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ProcessModules\IntroducirTransaccion_SAP.xaml">
+          <If sap2010:Annotation.AnnotationText="Borrar en cuanto las contraseñas de 500 y 600 se actualicen" Condition="[in_TransactionRow(&quot;Client&quot;).ToString.Split(&quot;.&quot;c)(1).Contains(&quot;333&quot;)]" sap:VirtualizedContainerService.HintSize="450,593" sap2010:WorkflowViewState.IdRef="If_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,196" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\Login_SAP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="ProcessModules\Login_SAP.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Cliente">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;Client&quot;).ToString.Split(&quot;.&quot;c)(1)" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ConnectionName">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;SAPConnectionName&quot;).ToString" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorAssetsFolder">
+                      <Literal x:TypeArguments="x:String">SOX/EAA-01.74.1-AR y EAA-02.74.1-AP y GL</Literal>
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_CredentialAssetName">
+                      <Literal x:TypeArguments="x:String">Cred_SAP_Robot</Literal>
+                    </InArgument>
+                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_ReportTable">
+                      <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_ReportTable" />
+                    </InOutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Language">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;SAP_Language&quot;).ToString" />
+                    </InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,196" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\Login_SAP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="ProcessModules\Login_SAP.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Cliente">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;Client&quot;).ToString.Split(&quot;.&quot;c)(1)" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ConnectionName">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;SAPConnectionName&quot;).ToString" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorAssetsFolder">
+                      <Literal x:TypeArguments="x:String">SOX/EAA-01.74.1-AR y EAA-02.74.1-AP y GL</Literal>
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_CredentialAssetName">
+                      <Literal x:TypeArguments="x:String">Cred_SAP_Robot_OLD</Literal>
+                    </InArgument>
+                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_ReportTable">
+                      <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_ReportTable" />
+                    </InOutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Language">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;SAP_Language&quot;).ToString" />
+                    </InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </If.Else>
+          </If>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\IntroducirTransaccion_SAP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ProcessModules\IntroducirTransaccion_SAP.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_Transaccion">[in_Config("Transaccion_zeufi037").ToString]</InArgument>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
               <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_ReportTable">[io_ReportTable]</InOutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[auxRutaWord]</OutArgument>
             </Assign.To>
@@ -180,7 +229,7 @@
               <InArgument x:TypeArguments="x:String">[Environment.CurrentDirectory +"\Data\WordReports\"+"Completeness-ZEUFI037-"+in_TransactionRow("Country").toString+"-"+Now.AddMonths(-1).ToString("MM")+"-"+Now.AddMonths(-1).ToString("yyyy")+".docx"]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Word\CapturaPantalla_Word.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Word\CapturaPantalla_Word.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Word\CapturaPantalla_Word.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Word\CapturaPantalla_Word.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_WordTemplate">[in_Config("WordTemplatePath").ToString]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_Country">[in_TransactionRow("Country").toString]</InArgument>
@@ -188,11 +237,11 @@
               <InArgument x:TypeArguments="x:String" x:Key="in_RutaWord">[auxRutaWord]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;PruebaBorrar log&quot;]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;PruebaBorrar log&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="500,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="488,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>

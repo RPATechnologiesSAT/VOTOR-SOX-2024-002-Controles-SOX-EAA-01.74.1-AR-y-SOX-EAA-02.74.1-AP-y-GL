@@ -133,7 +133,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TablaResultadosExcel" sap:VirtualizedContainerService.HintSize="1556,1828" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TablaResultadosExcel" sap:VirtualizedContainerService.HintSize="976,1828" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -172,14 +172,14 @@
               </Sequence>
             </If.Else>
           </If>
-          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_RutaReporte]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[&quot;Data\Template\Clearings Analysis_&quot;+ in_Country+&quot;_2024 Template.xlsx&quot;]" />
-          <ui:RenameFileX DisplayName="Rename File" FilePath="[in_RutaReporte+&quot;\&quot;+&quot;Clearings Analysis_&quot;+ in_Country+&quot;_2024 Template.xlsx&quot;]" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="RenameFileX_2" KeepExtension="False" NewName="[&quot;Clearings Analysis_&quot;+ in_Country + &quot; &quot; + now.AddMonths(-1).ToString(&quot;yyyy&quot;) + &quot; &quot; + Now.AddMonths(-1).ToString(&quot;MM&quot;) +&quot;.xlsx&quot;]" />
+          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_RutaReporte]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[&quot;Data\Template\Clearings Analysis_&quot;+ in_Country+&quot;_2024 Template.xlsm&quot;]" />
+          <ui:RenameFileX DisplayName="Rename File" FilePath="[in_RutaReporte+&quot;\&quot;+&quot;Clearings Analysis_&quot;+ in_Country+&quot;_2024 Template.xlsm&quot;]" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="RenameFileX_2" KeepExtension="False" NewName="[&quot;Clearings Analysis_&quot;+ in_Country + &quot; &quot; + now.AddMonths(-1).ToString(&quot;yyyy&quot;) + &quot; &quot; + Now.AddMonths(-1).ToString(&quot;MM&quot;) +&quot;.xlsm&quot;]" />
           <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[ActualFilePAth]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[in_RutaReporte+"\"+"Clearings Analysis_"+ in_Country + " " + now.addMonths(-1).ToString("yyyy") + " " + Now.AddMonths(-1).ToString("MM") +".xlsx"]</InArgument>
+              <InArgument x:TypeArguments="x:String">[in_RutaReporte+"\"+"Clearings Analysis_"+ in_Country + " " + now.addMonths(-1).ToString("yyyy") + " " + Now.AddMonths(-1).ToString("MM") +".xlsm"]</InArgument>
             </Assign.Value>
           </Assign>
           <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">

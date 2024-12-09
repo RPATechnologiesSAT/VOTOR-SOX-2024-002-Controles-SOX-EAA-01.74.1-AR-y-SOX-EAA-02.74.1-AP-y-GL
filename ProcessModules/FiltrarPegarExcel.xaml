@@ -56,6 +56,7 @@
       <x:String>UiPath.Excel.Activities.Business</x:String>
       <x:String>UiPath.Excel.Model</x:String>
       <x:String>System.Numerics</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -127,7 +128,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="FiltrarPegarExcel" sap:VirtualizedContainerService.HintSize="701,4617" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="FiltrarPegarExcel" sap:VirtualizedContainerService.HintSize="976,2913" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_TempSAP" />
     </Sequence.Variables>
@@ -143,10 +144,10 @@
         </InArgument>
       </ui:ReadRange.Range>
     </ui:ReadRange>
-    <If Condition="[dt_TempSAP.Columns(0).ToString.Equals(&quot;Sociedad&quot;)]" DisplayName="If Language is ESP" sap:VirtualizedContainerService.HintSize="638,2756" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[dt_TempSAP.Columns(0).ToString.Equals(&quot;Sociedad&quot;)]" DisplayName="If Language is ESP" sap:VirtualizedContainerService.HintSize="638,84" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -262,13 +263,57 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="638,1325" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[in_ExcelReportPath]">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_TempSAP]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="638,671" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="536,475" sap2010:WorkflowViewState.IdRef="Sequence_16">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[String.IsNullOrEmpty(CurrentRow.Item(1).ToString)]" sap:VirtualizedContainerService.HintSize="502,415" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Object">[CurrentRow.Item(1)]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Object">["Vacío"]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="638,1622" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[in_ExcelReportPath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="604,1183" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="604,1480" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:List(x:String)" Name="temp" />
             </Sequence.Variables>
@@ -304,31 +349,40 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:CommentOut>
             <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="570,122" sap2010:WorkflowViewState.IdRef="Delay_1" />
-            <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="570,684" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_2">
+            <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="570,981" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_2">
               <ueab:ExcelProcessScopeX.Body>
                 <ActivityAction x:TypeArguments="ui:IExcelProcess">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="536,525" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="536,862" sap2010:WorkflowViewState.IdRef="Sequence_11">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="502,465" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_2" KeepExcelFileOpen="True" ResizeWindow="None" WorkbookPath="[in_ExcelReportPath]">
+                    <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="502,802" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_2" KeepExcelFileOpen="True" ResizeWindow="None" WorkbookPath="[in_ExcelReportPath]">
                       <ueab:ExcelApplicationCard.Body>
                         <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,173" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,510" sap2010:WorkflowViewState.IdRef="Sequence_12">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ueab:RefreshDataConnectionsX DisplayName="Refresh Excel Data Connections" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="RefreshDataConnectionsX_1" Workbook="[Excel]" />
+                            <ueab:RefreshDataConnectionsX DisplayName="Refresh Excel Data Connections" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="RefreshDataConnectionsX_1" Workbook="[Excel]" />
+                            <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                            <ui:ExecuteMacro ContinueOnError="{x:Null}" MacroOutput="{x:Null}" sap2010:Annotation.AnnotationText="" DisplayName="Execute Macro" sap:VirtualizedContainerService.HintSize="434,123" sap2010:WorkflowViewState.IdRef="ExecuteMacro_1" MacroName="ProcesarYCrearWorkbookPruebaAP">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:ExecuteMacro>
+                            <ui:ExecuteMacro ContinueOnError="{x:Null}" MacroOutput="{x:Null}" DisplayName="Execute Macro" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="ExecuteMacro_2" MacroName="ProcesarYCrearWorkbookPruebaAR" />
                           </Sequence>
                         </ActivityAction>
                       </ueab:ExcelApplicationCard.Body>
