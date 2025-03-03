@@ -1,0 +1,5 @@
+ let
+    Source = Excel.CurrentWorkbook(){[Name="ZEUFI037"]}[Content],
+    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Tier", type any}, {"Type + G/L Acc", type any}, {"Type + TCode + Co + Doc N", type any}, {"CoCd", type any}, {"Manager", type any}, {"User", type any}, {"TCode", type any}, {"Text", type any}, {"Type", type any}, {"Document Descr.", type any}, {"DocumentNo", type any}, {"Doc. Date", type any}, {"Entry date", type any}, {"Effect date", type any}, {"Doc.Header Text", type any}, {"Reference", type any}, {"Sess. Name", type any}, {"Total Deb./Cred.", Currency.Type}, {"Total Deb./Cred.(ML3", type any}, {"Itm", type any}, {"PK", type any}, {"CME", type any}, {"G/L Account", type any}, {"G/L Account Descr.", type any}, {"Cost Ctr", type any}, {"Profit Ctr", type any}, {"Order", type any}, {"Cost Ctr Desc.", type any}, {"Profit Ctr Desc", type any}, {"Order Desc.", type any}, {"   Debit amount", type any}, {"Debit amount(ML3)", type any}, {"  Credit amount", type any}, {"Credit amount(ML3)", type any}, {"Line Comment", type any}, {"BARCODE", type any}})
+in
+    #"Changed Type" 

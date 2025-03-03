@@ -8,6 +8,7 @@
     <x:Property Name="in_ExcelResultARFilePath" Type="InArgument(x:String)" />
     <x:Property Name="in_ExcelResultAPFilePath" Type="InArgument(x:String)" />
     <x:Property Name="in_FullClearingsPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_ExcelFilePath" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -104,7 +105,7 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Etapa4" sap:VirtualizedContainerService.HintSize="974,1396" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Etapa4" sap:VirtualizedContainerService.HintSize="1124,1396" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -136,50 +137,88 @@
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="n AsientosAr.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ProcessModules\n AsientosAr.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_PathExcel">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ExcelResultARFilePath" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_CountAsientos">
-                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="AsientosAR" />
-              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PathExcel">[in_ExcelResultARFilePath]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_CountAsientos">[AsientosAR]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="n AsientosAp.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="ProcessModules\n AsientosAp.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_PathExcel">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ExcelResultAPFilePath" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_CountAsientos">
-                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="AsientosAP" />
-              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PathExcel">[in_ExcelResultAPFilePath]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_CountAsientos">[AsientosAP]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\SendEmail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ProcessModules\SendEmail.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTable">[io_ReportTable]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_ExcelFilePath">[in_ExcelResultARFilePath]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_WordResultFilePath">[in_WordResultFilePath]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_MailAdressToSend">[in_TransactionRow("Send_To").ToString]</InArgument>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_ConfigFramework">[in_ConfigFramework]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Country">[in_TransactionRow("Country").toString]</InArgument>
-              <InArgument x:TypeArguments="x:Boolean" x:Key="in_BoolAR">True</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_CountAsientos">[AsientosAR]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_FullClearings">[in_FullClearingsPath]</InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTable">
+                <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="io_ReportTable" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_WordResultFilePath">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_WordResultFilePath" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MailAdressToSend">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;Send_To&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_ConfigFramework">
+                <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_ConfigFramework" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Country">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;Country&quot;).toString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="in_BoolAR">
+                <Literal x:TypeArguments="x:Boolean" Value="True" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_CountAsientos">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="AsientosAR" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_FullClearings">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FullClearingsPath" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ExcelResultFilePath">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ExcelResultARFilePath" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ExcelDataCrudaFilePath">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ExcelFilePath" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\SendEmail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ProcessModules\SendEmail.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTable">[io_ReportTable]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_ExcelFilePath">[in_ExcelResultAPFilePath]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_WordResultFilePath">[in_WordResultFilePath]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_MailAdressToSend">[in_TransactionRow("Send_To2").ToString]</InArgument>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_ConfigFramework">[in_ConfigFramework]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Country">[in_TransactionRow("Country").toString]</InArgument>
-              <InArgument x:TypeArguments="x:Boolean" x:Key="in_BoolAR">False</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_CountAsientos">[AsientosAP]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_FullClearings">[in_FullClearingsPath]</InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTable">
+                <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="io_ReportTable" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_WordResultFilePath">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_WordResultFilePath" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MailAdressToSend">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;Send_To2&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_ConfigFramework">
+                <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_ConfigFramework" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Country">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionRow(&quot;Country&quot;).toString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="in_BoolAR">
+                <Literal x:TypeArguments="x:Boolean" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_CountAsientos">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="AsientosAP" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_FullClearings">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FullClearingsPath" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ExcelResultFilePath">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ExcelResultAPFilePath" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ExcelDataCrudaFilePath">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ExcelFilePath" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>

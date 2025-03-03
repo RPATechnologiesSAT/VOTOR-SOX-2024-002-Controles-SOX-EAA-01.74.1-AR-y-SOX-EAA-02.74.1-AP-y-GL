@@ -2,7 +2,6 @@
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_DataTable" Type="InArgument(sd:DataTable)" />
-    <x:Property Name="in_ExcelFilePath" Type="InArgument(x:String)" />
     <x:Property Name="in_WordResultFilePath" Type="InArgument(x:String)" />
     <x:Property Name="in_MailAdressToSend" Type="InArgument(x:String)" />
     <x:Property Name="in_ConfigFramework" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
@@ -10,6 +9,8 @@
     <x:Property Name="in_BoolAR" Type="InArgument(x:Boolean)" />
     <x:Property Name="in_CountAsientos" Type="InArgument(x:String)" />
     <x:Property Name="in_FullClearings" Type="InArgument(x:String)" />
+    <x:Property Name="in_ExcelResultFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_ExcelDataCrudaFilePath" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -153,7 +154,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="974,5122" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="1124,5134" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="int_Contador" />
       <Variable x:TypeArguments="x:String" Name="str_Subject" />
@@ -168,25 +169,26 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="608,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;--- Iniciando módulo 'SendEmail' ---&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="608,4762" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="608,4774" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="upr:ILocalResource" Name="Resource_WordResultFilePath" />
         <Variable x:TypeArguments="x:String" Name="ArrayMails" />
         <Variable x:TypeArguments="upr:ILocalResource" Name="Resource_ExcelResultFilePath" />
       </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="570,4480" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap:VirtualizedContainerService.HintSize="570,4492" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="AdressesToSend" />
             <Variable x:TypeArguments="upr:ILocalResource" Name="Resource_ExcelSOXFilePath" />
             <Variable x:TypeArguments="x:String" Name="Subject" />
+            <Variable x:TypeArguments="upr:ILocalResource" Name="Resource_ExcelDataCrudaFilePath" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If Condition="[String.IsNullOrWhiteSpace(in_MailAdressToSend)]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="536,84" sap2010:WorkflowViewState.IdRef="If_3">
+          <If Condition="[String.IsNullOrWhiteSpace(in_MailAdressToSend)]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="536,57" sap2010:WorkflowViewState.IdRef="If_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -476,9 +478,10 @@
           </Assign>
           <uast:FindAndReplace DisplayName="Find and Replace" sap:VirtualizedContainerService.HintSize="536,274" sap2010:WorkflowViewState.IdRef="FindAndReplace_1" MatchCase="False" ReplaceWith="[in_WordResultFilePath]" Result="[str_Body]" Source="[str_Body]" ValueToFind="$PATH" />
           <ui:PathExists Exists="{x:Null}" DisplayName="Path Exists" sap:VirtualizedContainerService.HintSize="536,147" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[in_WordResultFilePath]" PathType="File" Resource="[Resource_WordResultFilePath]" />
-          <ui:PathExists Exists="{x:Null}" DisplayName="Path Exists" sap:VirtualizedContainerService.HintSize="536,147" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[in_ExcelFilePath]" PathType="File" Resource="[Resource_ExcelResultFilePath]" />
+          <ui:PathExists Exists="{x:Null}" DisplayName="Path Exists" sap:VirtualizedContainerService.HintSize="536,147" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[in_ExcelResultFilePath]" PathType="File" Resource="[Resource_ExcelResultFilePath]" />
           <ui:PathExists Exists="{x:Null}" DisplayName="Path Exists" sap:VirtualizedContainerService.HintSize="536,147" sap2010:WorkflowViewState.IdRef="PathExists_5" Path="[in_FullClearings]" PathType="File" Resource="[Resource_ExcelSOXFilePath]" />
-          <If Condition="[String.IsNullOrEmpty(str_HtmlTablas)]" DisplayName="SE o BE?" sap:VirtualizedContainerService.HintSize="536,2063" sap2010:WorkflowViewState.IdRef="If_1">
+          <ui:PathExists Exists="{x:Null}" DisplayName="Path Exists" sap:VirtualizedContainerService.HintSize="536,147" sap2010:WorkflowViewState.IdRef="PathExists_6" Path="[in_ExcelDataCrudaFilePath]" PathType="File" Resource="[Resource_ExcelDataCrudaFilePath]" />
+          <If Condition="[String.IsNullOrEmpty(str_HtmlTablas)]" DisplayName="SE o BE?" sap:VirtualizedContainerService.HintSize="536,1955" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -486,14 +489,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,291" sap2010:WorkflowViewState.IdRef="Sequence_18">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,237" sap2010:WorkflowViewState.IdRef="Sequence_18">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="382,84" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">
                   <ui:CommentOut.Body>
                     <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,257" sap2010:WorkflowViewState.IdRef="Sequence_28">
                       <sap:WorkflowViewStateService.ViewState>
@@ -505,7 +508,7 @@
                         <ui:SendOutlookMail.Files>
                           <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
                             <InArgument x:TypeArguments="x:String">[in_WordResultFilePath]</InArgument>
-                            <InArgument x:TypeArguments="x:String">[in_ExcelFilePath]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[in_ExcelResultFilePath]</InArgument>
                           </scg:List>
                         </ui:SendOutlookMail.Files>
                       </ui:SendOutlookMail>
@@ -518,7 +521,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:CommentOut>
-                <If sap2010:Annotation.AnnotationText="Si vas a copiar y pegar este send email a otra actividad seria recomendalbe quitarle este if" Condition="[in_BoolAR]" sap:VirtualizedContainerService.HintSize="382,147" sap2010:WorkflowViewState.IdRef="If_5">
+                <If sap2010:Annotation.AnnotationText="Si vas a copiar y pegar este send email a otra actividad seria recomendalbe quitarle este if" Condition="[in_BoolAR]" sap:VirtualizedContainerService.HintSize="382,120" sap2010:WorkflowViewState.IdRef="If_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -608,7 +611,7 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,1611" sap2010:WorkflowViewState.IdRef="Sequence_19">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,1557" sap2010:WorkflowViewState.IdRef="Sequence_19">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -634,6 +637,7 @@
                           <scg:List x:TypeArguments="InArgument(upr:IResource)" Capacity="4">
                             <InArgument x:TypeArguments="upr:IResource">[Resource_WordResultFilePath]</InArgument>
                             <InArgument x:TypeArguments="upr:IResource">[Resource_ExcelResultFilePath]</InArgument>
+                            <InArgument x:TypeArguments="upr:IResource">[Resource_ExcelDataCrudaFilePath]</InArgument>
                           </scg:List>
                         </umam:SendMailConnections.AttachmentList>
                         <umam:SendMailConnections.AttachmentsBackup>
@@ -675,6 +679,7 @@
                           <scg:List x:TypeArguments="InArgument(upr:IResource)" Capacity="4">
                             <InArgument x:TypeArguments="upr:IResource">[Resource_WordResultFilePath]</InArgument>
                             <InArgument x:TypeArguments="upr:IResource">[Resource_ExcelResultFilePath]</InArgument>
+                            <InArgument x:TypeArguments="upr:IResource">[Resource_ExcelDataCrudaFilePath]</InArgument>
                           </scg:List>
                         </umam:SendMailConnections.AttachmentList>
                         <umam:SendMailConnections.AttachmentsBackup>
@@ -705,7 +710,7 @@
                     </Sequence>
                   </If.Else>
                 </If>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,84" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="CommentOut_4">
                   <ui:CommentOut.Body>
                     <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,163" sap2010:WorkflowViewState.IdRef="Sequence_30">
                       <sap:WorkflowViewStateService.ViewState>
@@ -717,7 +722,7 @@
                         <umam:SendMailConnections.AttachmentList>
                           <scg:List x:TypeArguments="InArgument(upr:IResource)" Capacity="4">
                             <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath(in_WordResultFilePath)]</InArgument>
-                            <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath(in_ExcelFilePath)]</InArgument>
+                            <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath(in_ExcelResultFilePath)]</InArgument>
                           </scg:List>
                         </umam:SendMailConnections.AttachmentList>
                         <umam:SendMailConnections.AttachmentsBackup>
@@ -763,7 +768,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:CommentOut>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,75" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                   <ui:CommentOut.Body>
                     <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,254" sap2010:WorkflowViewState.IdRef="Sequence_27">
                       <sap:WorkflowViewStateService.ViewState>
@@ -775,7 +780,7 @@
                         <ui:SendOutlookMail.Files>
                           <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
                             <InArgument x:TypeArguments="x:String">[in_WordResultFilePath]</InArgument>
-                            <InArgument x:TypeArguments="x:String">[in_ExcelFilePath]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[in_ExcelResultFilePath]</InArgument>
                           </scg:List>
                         </ui:SendOutlookMail.Files>
                       </ui:SendOutlookMail>

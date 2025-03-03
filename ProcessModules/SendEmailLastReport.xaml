@@ -150,7 +150,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="1834,4399" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="1124,4399" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="int_Contador" />
       <Variable x:TypeArguments="x:String" Name="str_Subject" />
@@ -165,7 +165,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="608,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;--- Iniciando módulo 'SendEmail' ---&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="608,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;--- Iniciando módulo 'SendEmail' ---&quot;]" />
     <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="608,4039" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
         <Sequence sap:VirtualizedContainerService.HintSize="570,3757" sap2010:WorkflowViewState.IdRef="Sequence_3">
@@ -569,7 +569,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="416,289" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence sap:VirtualizedContainerService.HintSize="416,281" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -591,7 +591,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="416,289" sap2010:WorkflowViewState.IdRef="Sequence_26">
+            <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="416,281" sap2010:WorkflowViewState.IdRef="Sequence_26">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>

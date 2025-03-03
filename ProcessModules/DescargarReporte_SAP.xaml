@@ -143,7 +143,7 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:Comment sap:VirtualizedContainerService.HintSize="1174,107" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// Borro el resto de archivos de la carpeta que se llaman EXPORT" />
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1174,173" sap2010:WorkflowViewState.IdRef="LogMessage_14" Message="[in_RutaReporteToSAP]" />
-          <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[in_RutaReporteToSAP]" sap:VirtualizedContainerService.HintSize="1174,113" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+          <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[in_RutaReporteToSAP]" sap:VirtualizedContainerService.HintSize="518,1250" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
             <ui:ForEachFileX.Body>
               <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
                 <ActivityAction.Argument1>
@@ -175,7 +175,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="382,112" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[CurrentFile.FullName.ToString]" />
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;El archivo &quot;+ CurrentFile.FullName+&quot; se ha borrado&quot;]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;El archivo &quot;+ CurrentFile.FullName+&quot; se ha borrado&quot;]" />
                       </Sequence>
                     </If.Then>
                     <If.Else>

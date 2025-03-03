@@ -111,16 +111,16 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Etapa2" sap:VirtualizedContainerService.HintSize="596,2938" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Etapa2" sap:VirtualizedContainerService.HintSize="1100,2845" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="534,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;--- Inicio Etapa2 ---&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="534,2513" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="534,2485" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="496,2253" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="468,2225" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="RutaDocWord" />
             <Variable x:TypeArguments="x:String" Name="ScreenshotWordPath" />
@@ -229,9 +229,15 @@
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessModules\DescargarReporte_SAP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="ProcessModules\DescargarReporte_SAP.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_RutaReporteToSAP">[Environment.CurrentDirectory +"\"+in_Config("DownloadSAPExcelPath").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_NombreFichero">["ZEUFI037-"+in_TransactionRow("Country").ToString+"-"+DateTime.Now.AddMonths(-1).ToString("yyyy MM")]</InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_FullNameFilePath">[out_ExcelFilePath]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_RutaReporteToSAP">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Environment.CurrentDirectory +&quot;\&quot;+in_Config(&quot;DownloadSAPExcelPath&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_NombreFichero">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;ZEUFI037-&quot;+in_TransactionRow(&quot;Country&quot;).ToString+&quot;-&quot;+DateTime.Now.AddMonths(-1).ToString(&quot;yyyy MM&quot;)" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_FullNameFilePath">
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_ExcelFilePath" />
+              </OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:Comment sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Asigno la ruta del reporte de Word al argumento para Etapa4&#xA;" />
