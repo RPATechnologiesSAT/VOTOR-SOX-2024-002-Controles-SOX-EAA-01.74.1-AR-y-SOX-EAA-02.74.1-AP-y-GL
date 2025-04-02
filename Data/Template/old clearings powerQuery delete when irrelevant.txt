@@ -1,5 +1,50 @@
+1)
+
  let
     Source = Excel.CurrentWorkbook(){[Name="ZEUFI037"]}[Content],
     #"Changed Type" = Table.TransformColumnTypes(Source,{{"Tier", type any}, {"Type + G/L Acc", type any}, {"Type + TCode + Co + Doc N", type any}, {"CoCd", type any}, {"Manager", type any}, {"User", type any}, {"TCode", type any}, {"Text", type any}, {"Type", type any}, {"Document Descr.", type any}, {"DocumentNo", type any}, {"Doc. Date", type any}, {"Entry date", type any}, {"Effect date", type any}, {"Doc.Header Text", type any}, {"Reference", type any}, {"Sess. Name", type any}, {"Total Deb./Cred.", Currency.Type}, {"Total Deb./Cred.(ML3", type any}, {"Itm", type any}, {"PK", type any}, {"CME", type any}, {"G/L Account", type any}, {"G/L Account Descr.", type any}, {"Cost Ctr", type any}, {"Profit Ctr", type any}, {"Order", type any}, {"Cost Ctr Desc.", type any}, {"Profit Ctr Desc", type any}, {"Order Desc.", type any}, {"   Debit amount", type any}, {"Debit amount(ML3)", type any}, {"  Credit amount", type any}, {"Credit amount(ML3)", type any}, {"Line Comment", type any}, {"BARCODE", type any}})
 in
     #"Changed Type" 
+
+
+
+
+2)
+
+
+
+let
+    // Cargar la tabla y convertir Tier y DocumentNo a texto
+    Source = Excel.CurrentWorkbook(){[Name="ZEUFI037"]}[Content],
+    ChangedType = Table.TransformColumnTypes(Source, {
+        {"Tier", type text},
+        {"DocumentNo", type text}
+    }),
+
+    // Agrupar por DocumentNo y obtener una lista de valores de Tier
+    Grouped = Table.Group(ChangedType, {"DocumentNo"}, {
+        {"Tiers", each List.Select([Tier], each Value.Is(_, type text))}
+    }),
+
+    // Determinar el nuevo valor de Tier basado en la lista de valores
+    AddedNewTier = Table.AddColumn(Grouped, "NewTier", 
+        each if List.Contains([Tiers], "Under Control") 
+             then "Under Control" 
+             else "To Analyze", 
+        type text),
+
+    // Eliminar la columna Tiers para evitar problemas en la expansión
+    RemovedTiersColumn = Table.RemoveColumns(AddedNewTier, {"Tiers"}),
+
+    // Combinar la tabla original con la agrupada para asignar los nuevos valores
+    Merged = Table.NestedJoin(ChangedType, {"DocumentNo"}, RemovedTiersColumn, {"DocumentNo"}, "Grouped", JoinKind.LeftOuter),
+    ExpandedGrouped = Table.ExpandTableColumn(Merged, "Grouped", {"NewTier"}),
+
+    // Reemplazar la columna Tier original con la nueva calculada
+    RemovedOldTier = Table.RemoveColumns(ExpandedGrouped, {"Tier"}),
+    Renamed = Table.RenameColumns(RemovedOldTier, {{"NewTier", "Tier"}}),
+
+    // Reordenar para que la columna Tier quede en la primera posición
+    Reordered = Table.ReorderColumns(Renamed, List.InsertRange(List.RemoveItems(Table.ColumnNames(Renamed), {"Tier"}), 0, {"Tier"}))
+in
+    Reordered
